@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,21 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  // Inputs
+  @ViewChild('textInput')
+  private textInput: ElementRef
+
   private name: String = ""
   private text: String = ""
 
-  // Display
   private connected: boolean = false
   private users: Array<String> = ["Alban", "Ulises", "Sebastien"]
-  /* Expected format of items :
-    {
-      "time": "15:45:28",
-      "author": "Ulises",
-      "text": "Cras ac tellus."
-    }
-  */
-  private messages: Array<any> = []
+
+  private messages: Array<Message> = []
 
   connect = function () {
     this.connected = true
@@ -29,16 +24,26 @@ export class AppComponent {
   }
 
   send = function () {
-    let message: any = {
+    if(!this.text) {
+      return;
+    }
+    let message: Message = {
       time: this.formatDate(new Date()),
       author: this.name,
       text: this.text
     };
-    this.text = "";
-    this.messages.push(message);
+    this.text = ""
+    this.messages.push(message)
+    this.textInput.nativeElement.focus()
   }
 
   private formatDate = function (date: Date) {
-    return date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    return date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
   }
+}
+
+export class Message {
+  public author: String
+  public text: String
+  public time: String
 }

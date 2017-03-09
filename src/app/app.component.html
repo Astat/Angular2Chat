@@ -11,11 +11,11 @@
       </div>
     </div>
     <div class="flex-input" *ngIf="!connected">
-      <input type="text" [(ngModel)]="name" placeholder="Username" />
+      <input type="text" (keyup.enter)="connect()" [(ngModel)]="name" placeholder="Username" />
       <button type="button" (click)="connect()">Connect</button>
     </div>
     <div class="flex-input" *ngIf="connected">
-      <input type="text" [(ngModel)]="text" placeholder="Message" />
+      <input #textInput type="text" (keyup.enter)="send()" [(ngModel)]="text" placeholder="Message" />
       <button type="button" (click)="send()">Send</button>
     </div>
   </div>
