@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    font-family: Arial;
+}
+
+app-root {
+    flex-grow: 1;
+    display: flex;
+
+background-color:rgb(20, 20, 20);
+background-image: 
+radial-gradient(circle at 100% 150%, rgb(20, 20, 20) 24%, black 25%, black 28%, rgb(20, 20, 20) 29%, rgb(20, 20, 20) 36%, black 36%, black 40%, transparent 40%, transparent),
+radial-gradient(circle at 0    150%, rgb(20, 20, 20) 24%, black 25%, black 28%, rgb(20, 20, 20) 29%, rgb(20, 20, 20) 36%, black 36%, black 40%, transparent 40%, transparent),
+radial-gradient(circle at 50%  100%, black 10%, rgb(20, 20, 20) 11%, rgb(20, 20, 20) 23%, black 24%, black 30%, rgb(20, 20, 20) 31%, rgb(20, 20, 20) 43%, black 44%, black 50%, rgb(20, 20, 20) 51%, rgb(20, 20, 20) 63%, black 64%, black 71%, transparent 71%, transparent),
+radial-gradient(circle at 100% 50%, black 5%, rgb(20, 20, 20) 6%, rgb(20, 20, 20) 15%, black 16%, black 20%, rgb(20, 20, 20) 21%, rgb(20, 20, 20) 30%, black 31%, black 35%, rgb(20, 20, 20) 36%, rgb(20, 20, 20) 45%, black 46%, black 49%, transparent 50%, transparent),
+radial-gradient(circle at 0    50%, black 5%, rgb(20, 20, 20) 6%, rgb(20, 20, 20) 15%, black 16%, black 20%, rgb(20, 20, 20) 21%, rgb(20, 20, 20) 30%, black 31%, black 35%, rgb(20, 20, 20) 36%, rgb(20, 20, 20) 45%, black 46%, black 49%, transparent 50%, transparent);
+background-size:100px 50px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(100, 100, 100, 0.4); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(100, 100, 100, 0.4); 
+}
