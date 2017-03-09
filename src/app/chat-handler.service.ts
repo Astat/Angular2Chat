@@ -3,34 +3,35 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { Message } from './message';
+import { ChatCommunicationService } from './chat-communication.service'
 
 @Injectable()
 export class ChatHandlerService {
 
-  private isConnected: BehaviorSubject<Boolean> = new BehaviorSubject(false)
+  public me: string = ""
 
-  private users: Array<String> = ["Alban", "Ulises", "Sebastien"]
-
+  private users: Array<string> = []
   private messages: Array<Message> = []
 
-  private me: String = ""
+  constructor(private chatCommunication: ChatCommunicationService) {
+    this.chatCommunication.messagesStream().subscribe(m => {
+      this.messages.push(m)
+    })
+    this.chatCommunication.usersStream().subscribe(l => {
+      this.users = l
+    })
+  }
 
-  constructor() { }
-
-  public connect(name: String) {
+  public connect(name: string) {
     this.me = name
-    this.users.push(this.me)
-    this.isConnected.next(true)
-    setTimeout(() => {
-      this.isConnected.next(false)
-    }, 10000)
+    this.chatCommunication.connect(name)
   }
 
   public connected(): Observable<boolean> {
-    return this.isConnected
+    return this.chatCommunication.connected()
   }
 
-  public showWarning(warning: String) {
+  public showWarning(warning: string) {
     let message: Message = {
       time: this.formatDate(new Date()),
       author: "SYSTEM",
@@ -39,20 +40,20 @@ export class ChatHandlerService {
     this.messages.push(message)
   }
 
-  public send(text: String): void {
+  public send(text: string): void {
     let message: Message = {
-      time: this.formatDate(new Date()),
-      author: this.me,
+      time: null,
+      author: null,
       text: text
     };
-    this.messages.push(message)
+    this.chatCommunication.sendMessage(message)
   }
 
   public getMessages(): Array<Message> {
     return this.messages
   }
 
-  public getUsers(): Array<String> {
+  public getUsers(): Array<string> {
     return this.users
   }
 

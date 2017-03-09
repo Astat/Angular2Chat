@@ -1,5 +1,5 @@
 export class Message {
-  public author: String
-  public text: String
-  public time: String
+  public author: string
+  public text: string
+  public time: string
 }

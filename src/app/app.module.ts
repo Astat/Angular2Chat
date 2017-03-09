@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ChatHandlerService } from './chat-handler.service'
+import { ChatCommunicationService } from './chat-communication.service'
 
 import { AppComponent } from './app.component';
 
@@ -15,7 +16,10 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule
   ],
-  providers: [ChatHandlerService],
+  providers: [
+    ChatHandlerService,
+    ChatCommunicationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
