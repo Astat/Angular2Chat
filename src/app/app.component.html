@@ -4,7 +4,7 @@
       ✉ The mighty chat !
     </header>
     <div class="messages">
-      <div class="message" *ngFor="let message of messages">
+      <div class="message" *ngFor="let message of getMessages()">
         <div class="text">{{message.text}}</div>
         <div class="author">{{message.author}}</div>
         <div class="time">{{message.time}}</div>
@@ -21,7 +21,7 @@
   </div>
   <div class="list">
     <ul>
-      <li *ngFor="let user of users">{{user}}</li>
+      <li *ngFor="let user of getUsers()">{{user}}</li>
     </ul>
   </div>
 </div>

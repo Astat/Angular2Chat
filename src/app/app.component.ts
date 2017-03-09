@@ -1,11 +1,25 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Message } from './message'
+
+import { ChatHandlerService } from './chat-handler.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  constructor(private chatService: ChatHandlerService) { }
+
+  ngOnInit() {
+    this.chatService.connected().subscribe(value => {
+      if (this.connected && !value) {
+        this.chatService.showWarning("Disconnected")
+      }
+      this.connected = value
+    })
+  }
 
   @ViewChild('textInput')
   private textInput: ElementRef
@@ -13,37 +27,29 @@ export class AppComponent {
   private name: String = ""
   private text: String = ""
 
-  private connected: boolean = false
-  private users: Array<String> = ["Alban", "Ulises", "Sebastien"]
+  private connected: boolean
 
-  private messages: Array<Message> = []
-
-  connect = function () {
-    this.connected = true
-    this.users.push(this.name)
+  private getMessages(): Array<Message> {
+    return this.chatService.getMessages()
   }
 
-  send = function () {
-    if(!this.text) {
-      return;
+  private getUsers(): Array<String> {
+    return this.chatService.getUsers()
+  }
+
+  private connect() {
+    if (!this.name) {
+      return
     }
-    let message: Message = {
-      time: this.formatDate(new Date()),
-      author: this.name,
-      text: this.text
-    };
+    this.chatService.connect(this.name)
+  }
+
+  private send() {
+    if (!this.text) {
+      return
+    }
+    this.chatService.send(this.text)
     this.text = ""
-    this.messages.push(message)
     this.textInput.nativeElement.focus()
   }
-
-  private formatDate = function (date: Date) {
-    return date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
-  }
-}
-
-export class Message {
-  public author: String
-  public text: String
-  public time: String
 }
