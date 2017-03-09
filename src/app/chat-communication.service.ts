@@ -22,7 +22,7 @@ export class ChatCommunicationService {
     if (this.ws) {
       return
     }
-    this.ws = new WebSocket("ws://angular2chat.herokuapp.com/chat")
+    this.ws = new WebSocket("wss://angular2chat.herokuapp.com/chat")
     this.ws.onclose = event => this.onDisconnect()
     this.ws.onopen = event => this.finishConnection(name)
     this.ws.onmessage = event => this.onMessage(event)
