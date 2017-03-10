@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ChatHandlerService } from '../chat-handler.service'
 
@@ -11,9 +12,14 @@ export class LoginViewComponent implements OnInit {
 
   private name: string = ""
 
-  constructor(private chatService: ChatHandlerService) { }
+  constructor(private chatService: ChatHandlerService, private router: Router) { }
 
   ngOnInit() {
+    this.chatService.connected().subscribe(connected => {
+      if (connected) {
+        this.router.navigate(['/chat'])
+      }
+    })
   }
 
   private connect() {
