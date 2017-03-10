@@ -9,11 +9,7 @@
       <div class="time">{{message.time}}</div>
     </div>
   </div>
-  <div class="flex-input" *ngIf="!connected">
-    <input type="text" (keyup.enter)="connect()" [(ngModel)]="name" placeholder="Username" />
-    <button type="button" (click)="connect()">Connect</button>
-  </div>
-  <div class="flex-input" *ngIf="connected">
+  <div class="flex-input">
     <input #textInput type="text" (keyup.enter)="send()" [(ngModel)]="text" placeholder="Message" />
     <button type="button" (click)="send()">Send</button>
   </div>

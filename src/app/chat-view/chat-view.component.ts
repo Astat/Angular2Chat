@@ -31,7 +31,6 @@ export class ChatViewComponent implements OnInit {
   @ViewChild('textInput')
   private textInput: ElementRef
 
-  private name: string = ""
   private text: string = ""
 
   private connected: boolean
@@ -42,13 +41,6 @@ export class ChatViewComponent implements OnInit {
 
   private getUsers(): Array<string> {
     return this.chatService.getUsers()
-  }
-
-  private connect() {
-    if (!this.name) {
-      return
-    }
-    this.chatService.connect(this.name)
   }
 
   private send() {
