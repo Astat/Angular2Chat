@@ -1,0 +1,21 @@
+<div class="chat">
+  <header>
+    ✉ The mighty chat !
+  </header>
+  <div #messagesDiv class="messages">
+    <div class="message" *ngFor="let message of getMessages()">
+      <div class="text">{{message.text}}</div>
+      <div class="author">{{message.author}}</div>
+      <div class="time">{{message.time}}</div>
+    </div>
+  </div>
+  <div class="flex-input" *ngIf="!connected">
+    <input type="text" (keyup.enter)="connect()" [(ngModel)]="name" placeholder="Username" />
+    <button type="button" (click)="connect()">Connect</button>
+  </div>
+  <div class="flex-input" *ngIf="connected">
+    <input #textInput type="text" (keyup.enter)="send()" [(ngModel)]="text" placeholder="Message" />
+    <button type="button" (click)="send()">Send</button>
+  </div>
+</div>
+<users-list [users]="getUsers()" (onSelectUser)="writeToChat($event)"></users-list>
