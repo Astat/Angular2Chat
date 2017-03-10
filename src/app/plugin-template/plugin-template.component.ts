@@ -25,12 +25,12 @@ export abstract class PluginTemplateComponent implements OnInit {
         command = text.slice(1)
         value = ""
       }
-      this.isHidden = false
       this.process(command, value, this.message.author)
     }
   }
 
   intercept() {
+    this.isHidden = false
     this.interceptor.emit()
   }
 
