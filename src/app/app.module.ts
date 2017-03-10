@@ -13,13 +13,17 @@ import { ChatViewComponent } from './chat-view/chat-view.component';
 import { LoginViewComponent } from './login-view/login-view.component';
 
 import { ConnectedGuard } from './connected.guard';
+import { MessageInterceptorComponent } from './message-interceptor/message-interceptor.component';
+import { PluginTestComponent } from './plugin-test/plugin-test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersListComponent,
     ChatViewComponent,
-    LoginViewComponent
+    LoginViewComponent,
+    MessageInterceptorComponent,
+    PluginTestComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
