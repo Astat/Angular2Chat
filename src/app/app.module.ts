@@ -15,6 +15,7 @@ import { LoginViewComponent } from './login-view/login-view.component';
 import { ConnectedGuard } from './connected.guard';
 import { MessageInterceptorComponent } from './message-interceptor/message-interceptor.component';
 import { PluginTestComponent } from './plugin-test/plugin-test.component';
+import { MessageViewComponent } from './message-view/message-view.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PluginTestComponent } from './plugin-test/plugin-test.component';
     ChatViewComponent,
     LoginViewComponent,
     MessageInterceptorComponent,
-    PluginTestComponent
+    PluginTestComponent,
+    MessageViewComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -1,0 +1,6 @@
+<div class="message">
+      <message-interceptor [message]="message" (intercepted)="messageText.hidden = true"></message-interceptor>
+      <div class="text" #messageText>{{message.text}}</div>
+      <div class="author">{{message.author}}</div>
+      <div class="time">{{message.time}}</div>
+</div>

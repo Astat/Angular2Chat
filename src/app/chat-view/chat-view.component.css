@@ -31,30 +31,6 @@
     box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.message {
-    background-color: white;
-    margin: 5px 10px 10px 15px;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 6px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-}
-
-.message .text {
-    flex-basis: 100%;
-    margin: 5px 0 10px 0;
-}
-
-.message .time {
-    font-weight: bold;
-}
-
-.message .author {
-    flex-grow: 1;
-    font-weight: bold;
-}
-
 .flex-input {
     display: flex;
     padding: 12px 20px;

@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, HostBinding } from '@angular/co
 
 import { Message } from '../message'
 import { PluginTemplateComponent } from '../plugin-template/plugin-template.component'
+import { ChatHandlerService } from '../chat-handler.service'
 
 @Component({
   selector: 'message-interceptor',
@@ -19,9 +20,19 @@ export class MessageInterceptorComponent {
   @Output()
   intercepted = new EventEmitter<void>()
 
+  constructor(private chat: ChatHandlerService) {
+  }
+
   intercept() {
     this.intercepted.emit()
     setTimeout(() => this.isHidden = false, 0)
+  }
+
+  discardMessage() {
+    var index = this.chat.getMessages().indexOf(this.message, 0);
+    if (index > -1) {
+      this.chat.getMessages().splice(index, 1);
+    }
   }
 
 }
