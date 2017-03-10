@@ -6,10 +6,12 @@ import { ChatHandlerService } from './chat-handler.service'
 import { ChatCommunicationService } from './chat-communication.service'
 
 import { AppComponent } from './app.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
