@@ -1,5 +1,5 @@
 <div class="list">
   <ul>
-    <li *ngFor="let user of users">{{user}}</li>
+    <li *ngFor="let user of users" (click)="selectUser(user)">{{user}}</li>
   </ul>
 </div>

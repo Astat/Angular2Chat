@@ -57,6 +57,18 @@ export class AppComponent implements OnInit {
     }
     this.chatService.send(this.text)
     this.text = ""
-    this.textInput.nativeElement.focus()
+    this.focusChatInput()
+  }
+
+  private focusChatInput() {
+    setTimeout(() => this.textInput.nativeElement.focus(), 0)
+  }
+
+  private writeToChat(text: string) {
+    if(this.text.slice(-1) != " ") {
+      this.text += " "
+    }
+    this.text += text + " "
+    this.focusChatInput()
   }
 }

@@ -19,5 +19,5 @@
       <button type="button" (click)="send()">Send</button>
     </div>
   </div>
-  <users-list [users]="getUsers()"></users-list>
+  <users-list [users]="getUsers()" (onSelectUser)="writeToChat($event)"></users-list>
 </div>
