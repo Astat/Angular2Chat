@@ -3,7 +3,7 @@
     <header>
       ✉ The mighty chat !
     </header>
-    <div class="messages">
+    <div #messagesDiv class="messages">
       <div class="message" *ngFor="let message of getMessages()">
         <div class="text">{{message.text}}</div>
         <div class="author">{{message.author}}</div>

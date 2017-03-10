@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Message } from './message'
 
 import { ChatHandlerService } from './chat-handler.service'
+import { ChatCommunicationService } from './chat-communication.service'
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { ChatHandlerService } from './chat-handler.service'
 })
 export class AppComponent implements OnInit {
 
-  constructor(private chatService: ChatHandlerService) { }
+  constructor(private chatService: ChatHandlerService, private chatCommunication: ChatCommunicationService) { }
 
   ngOnInit() {
     this.chatService.connected().subscribe(value => {
@@ -19,7 +20,13 @@ export class AppComponent implements OnInit {
       }
       this.connected = value
     })
+    this.chatCommunication.messagesStream().subscribe(m => {
+      setTimeout(() => this.messagesDiv.nativeElement.scrollTop = this.messagesDiv.nativeElement.scrollHeight, 50);
+    })
   }
+
+  @ViewChild('messagesDiv')
+  private messagesDiv: ElementRef
 
   @ViewChild('textInput')
   private textInput: ElementRef
