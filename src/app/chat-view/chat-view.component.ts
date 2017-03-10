@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { Message } from '../message'
 
 import { ChatHandlerService } from '../chat-handler.service'
@@ -11,12 +12,12 @@ import { ChatCommunicationService } from '../chat-communication.service'
   styleUrls: ['./chat-view.component.css']
 })
 export class ChatViewComponent implements OnInit {
-  constructor(private chatService: ChatHandlerService, private chatCommunication: ChatCommunicationService) { }
+  constructor(private chatService: ChatHandlerService, private chatCommunication: ChatCommunicationService,  private router: Router) { }
 
   ngOnInit() {
     this.chatService.connected().subscribe(value => {
-      if (this.connected && !value) {
-        this.chatService.showWarning("Disconnected")
+      if (!value) {
+        this.router.navigate(['/'])
       }
       this.connected = value
     })
