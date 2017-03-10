@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersListComponent implements OnInit {
 
+  private users: Array<string> = ["Alban"]
+
   constructor() { }
 
   ngOnInit() {
