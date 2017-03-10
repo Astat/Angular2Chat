@@ -12,6 +12,8 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { ChatViewComponent } from './chat-view/chat-view.component';
 import { LoginViewComponent } from './login-view/login-view.component';
 
+import { ConnectedGuard } from './connected.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,8 @@ import { LoginViewComponent } from './login-view/login-view.component';
   ],
   providers: [
     ChatHandlerService,
-    ChatCommunicationService
+    ChatCommunicationService,
+    ConnectedGuard
   ],
   bootstrap: [AppComponent]
 })
