@@ -26,6 +26,9 @@ import { Plugin7Component } from './plugin-7/plugin-7.component';
 import { Plugin8Component } from './plugin-8/plugin-8.component';
 import { Plugin4Service } from './plugin-4/plugin-4.service';
 
+import { TvShowViewComponent } from './tvshow-view/tvshow-view.component';
+import { TvMazeService } from './plugin-5/tvmaze.service';
+
 import { WoodService } from './plugin-6/wood.service';
 
 @NgModule({
@@ -44,7 +47,8 @@ import { WoodService } from './plugin-6/wood.service';
     Plugin5Component,
     Plugin6Component,
     Plugin7Component,
-    Plugin8Component
+    Plugin8Component,
+    TvShowViewComponent
     
   ],
   imports: [
@@ -58,8 +62,8 @@ import { WoodService } from './plugin-6/wood.service';
     ChatCommunicationService,
     ConnectedGuard,
     Plugin4Service,
-    WoodService
-
+    WoodService,
+    TvMazeService
   ],
   bootstrap: [AppComponent]
 })

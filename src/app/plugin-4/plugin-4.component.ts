@@ -58,6 +58,8 @@ export class Plugin4Component extends PluginTemplateComponent {
         break;
     }
 
-    this.intercept();
+    if(command.indexOf("giphy") >= 0) {
+      this.intercept();
+    }
   }
 }
