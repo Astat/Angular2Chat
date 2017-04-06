@@ -1,1 +1,21 @@
-Command "plug6"
+<div *ngIf="isBigger">
+    Wow ! {{target}} has such a big wood
+</div>
+<div *ngIf="isSmaller">
+    Meh.. {{target}}'s wood ain't that impressive
+</div>
+<div *ngIf="request">
+    Hi cuttie {{target}}, can you show me what can of wood you have ;) ?
+</div>
+<div *ngIf="party">
+    FREE THE WOODS !
+</div>
+<div *ngIf="show">
+    My wood is as big as a
+    <img *ngIf="woodSize<=1" height="42" width="42" src="http://www.paulineh.fr/18052-thickbox_default/branche-de-saule-plat-152cm.jpg"/>
+    <img *ngIf="woodSize<=2 && woodSize>1" height="42" width="42" src="https://www.philipwattsdesign.com/images/products/galleries/322/blowup/twig-aged-bronze-satin.jpeg?id=1073"/>
+    <img *ngIf="woodSize<=3 && woodSize>2" height="42" width="42" src="https://previews.123rf.com/images/koosen/koosen1403/koosen140300023/28251098-Branche-d-arbre-sec-Banque-d%27images.jpg"/>
+    <img *ngIf="woodSize<=4 && woodSize>3" height="42" width="42" src="http://cdn2.eminza.com/images/rep_articles/gra/tr/tronc-d-arbre_10952.jpg"/>
+    <img *ngIf="woodSize<=5 && woodSize>4" height="42" width="42" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Quercus_suber_trunc_01_by_Line1.jpg"/>
+    <img *ngIf="woodSize<=6 && woodSize>5" height="42" width="42" src="http://cdn.kalagan.fr/wp-content/uploads/2013/01/plus-gros-tronc-du-monde.jpg"/>
+</div>

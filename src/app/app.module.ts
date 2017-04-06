@@ -26,6 +26,8 @@ import { Plugin7Component } from './plugin-7/plugin-7.component';
 import { Plugin8Component } from './plugin-8/plugin-8.component';
 import { Plugin4Service } from './plugin-4/plugin-4.service';
 
+import { WoodService } from './plugin-6/wood.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,7 @@ import { Plugin4Service } from './plugin-4/plugin-4.service';
     
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
     BrowserModule,
     FormsModule,
     HttpModule
@@ -55,7 +57,9 @@ import { Plugin4Service } from './plugin-4/plugin-4.service';
     ChatHandlerService,
     ChatCommunicationService,
     ConnectedGuard,
-    Plugin4Service
+    Plugin4Service,
+    WoodService
+
   ],
   bootstrap: [AppComponent]
 })

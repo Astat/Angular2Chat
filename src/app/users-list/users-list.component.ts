@@ -1,3 +1,4 @@
+import { AvatarUser } from '../chat-handler.service';
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 export class UsersListComponent implements OnInit {
 
   @Input()
-  private users: Array<string>
+  private users: Array<AvatarUser>
 
   @Output()
   private onSelectUser = new EventEmitter<string>();
