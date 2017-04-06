@@ -46,7 +46,7 @@ import { WoodService } from './plugin-6/wood.service';
     Plugin8Component
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
     BrowserModule,
     FormsModule,
     HttpModule
