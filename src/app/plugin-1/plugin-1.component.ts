@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PluginTemplateComponent } from '../plugin-template/plugin-template.component'
 
+import { ChatHandlerService } from '../chat-handler.service'
+
 @Component({
   selector: 'plugin-1',
   templateUrl: './plugin-1.component.html',
@@ -8,14 +10,22 @@ import { PluginTemplateComponent } from '../plugin-template/plugin-template.comp
 })
 export class Plugin1Component extends PluginTemplateComponent {
 
-  constructor() {
+  value = "";
+
+  constructor(private chatService: ChatHandlerService) {
     super()
   }
 
   process(command: string, value: string, author: string) {
-    if (command != "plug1") {
+    if (command != "secret") {
       return
     }
-    this.intercept()
+    const me = this.chatService.me;
+    if(value.startsWith(me) || author == me) {
+      this.value = value;
+      this.intercept();
+    } else {
+      this.discardMessage();
+    }
   }
 }
