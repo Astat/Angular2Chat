@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Message } from '../message'
 
-import { ChatHandlerService } from '../chat-handler.service'
+import { ChatHandlerService, AvatarUser } from '../chat-handler.service'
 import { ChatCommunicationService } from '../chat-communication.service'
 
 
@@ -40,8 +40,8 @@ export class ChatViewComponent implements OnInit {
     return this.chatService.getMessages()
   }
 
-  private getUsers(): Array<string> {
-    return this.chatService.getUsers()
+  private getUsers(): Array<AvatarUser> {
+    return this.chatService.avatarUsers
   }
 
   private send() {
