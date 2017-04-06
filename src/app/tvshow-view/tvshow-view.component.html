@@ -1,0 +1,15 @@
+<div class="tvshow" (click)="showHideDetail()">
+  <div class="tvshow-header">{{tvShow.name}}<span *ngIf="tvShow.network != ''"> ({{tvShow.network}})</span></div>
+  <div #detail *ngIf="detailVisible" class="tvshow-detail">
+    <table>
+      <tr>
+        <td><img width="200px" src="{{tvShow.img}}" /></td>
+        <td class="tvshow-summary">
+          <div [innerHTML]="tvShow.summary"></div>
+          <div (click)="follow()">Follow</div>
+
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
